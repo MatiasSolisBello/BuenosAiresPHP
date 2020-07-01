@@ -11,7 +11,7 @@ This project include:
 - [x] REST-API testing with Postman
 
 Possible future improvements
-- [] Check security
-- [] Check SQL Injection
 - [] Recovery of password through email
+- [] Images for products
+- [] API for buy products (ej: API Transbank)
 
