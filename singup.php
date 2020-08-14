@@ -1,7 +1,9 @@
 <?php require_once("config/conexion.php"); ?>
 <?php require_once("include/header2.php"); ?>
 <?php
-  if (isset($_POST['usuario_guardar'])) {
+  if (isset($_POST['usuario_guardar'])) { 
+    
+    //GUARDAMOS LAS VARIABLES INGRESADAS VIA POST
     $rut = $_POST['rut'];
     $nombre = $_POST['nombre'];
     $apellidos = $_POST['apellidos'];
@@ -10,11 +12,14 @@
     $direccion = $_POST['direccion'];
     $password = $_POST['password'];
 
+    //ENCRIPTAMOS LA VARIABLE PASSWORD
+    $hash = md5($password);
+
+    //INGRESO A LA BD
     $query = "INSERT INTO usuario
     (rut, nombre, apellidos, telefono, correo, direccion, password, id_rol) 
     VALUES
-    ('$rut', '$nombre', '$apellidos', '$telefono', '$correo', '$direccion', '$password', 2)";
-
+    ('$rut', '$nombre', '$apellidos', '$telefono', '$correo', '$direccion', '$hash', 2)";
     $result = mysqli_query($mysqli, $query);
     if(!$result) {
       die("Query Failed.");

@@ -4,25 +4,34 @@ require_once("include/header2.php");
 session_start();
 
 if (isset($_POST['login'])) {
+
+    //GUARDAMOS LAS VARIABLES INGRESADAS VIA POST
     $correo = $_POST['correo'];
     $password = $_POST['password'];
+
+    $hash = md5($password);
     
+    //CONSULTA SQL
     $rol = "SELECT * FROM USUARIO WHERE 
-    correo = '$correo'  AND password = '$password'";
+    correo = '$correo'  AND password = '$hash'";
 
     $consulta = mysqli_query($mysqli, $rol);
     $array = mysqli_fetch_array($consulta);
+
     //REDIRECCIONA
     if($array['id_rol'] == 1){
         $_SESSION['Admin'] = $correo;
         header("location: vistas/admin.php");  //TECNICO
+
     }elseif($array['id_rol'] == 2){
         $_SESSION['Cliente'] = $correo;
         $_SESSION['nombre'] = $nombre;
         header("location: vistas/cliente.php");  //CLIENTE
+
     }elseif($array['id_rol'] == 3){
         $_SESSION['Tecnico'] = $correo;
         header("location: vistas/tecnico.php");   //ADMIN
+
     }else{
         echo'<script type="text/javascript">
         alert("Datos erroneos");

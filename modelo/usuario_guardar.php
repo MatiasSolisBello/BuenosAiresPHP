@@ -1,4 +1,6 @@
-<?php require_once("../config/conexion.php");
+<?php
+  require_once("../config/conexion.php");
+  require_once("../include/header.php"); 
 
   if (isset($_POST['usuario_guardar'])) {
     $rut = $_POST['rut'];
@@ -10,14 +12,18 @@
     $password = $_POST['password'];
     $id_rol = $_POST['id_rol'];
 
+    //ENCRIPTAMOS LA VARIABLE PASSWORD
+    $hash = md5($password);
+
+    //INGRESO A LA BD
     $query = "INSERT INTO usuario
     (rut, nombre, apellidos, telefono, correo, direccion, password, id_rol) 
     VALUES
-    ('$rut','$nombre', '$apellidos', '$telefono', '$correo', '$direccion', md5('$password'), '$id_rol')";
+    ('$rut','$nombre', '$apellidos', '$telefono', '$correo', '$direccion',  '$hash', '$id_rol')";
 
     $result = mysqli_query($mysqli, $query);
     if(!$result) {
-      die("Query Failed.");
+      die("Insercion de cliente ha fallado. Intenta denuevo");
     }
     header("location: ../vistas/usuario.php");
   }
@@ -81,6 +87,6 @@
     </form>
   </div>
 </div>
-<? php require_once("../include/footer.php"); ?>
+<?php require_once("../include/footer.php"); ?>
 
 

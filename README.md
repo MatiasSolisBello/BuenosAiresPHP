@@ -10,6 +10,7 @@ This project include:
 - [x] CRUD different tables
 - [x] Login for role
 - [x] REST-API testing with Postman
+- [x] Full password encryption for md5 
 
 Possible future improvements
 - [ ] Recovery of password through email
