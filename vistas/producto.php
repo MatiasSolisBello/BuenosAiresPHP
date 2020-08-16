@@ -26,6 +26,7 @@
         <th>Nombre</th>
         <th>Precio</th>
         <th>Stock</th>
+        <th>Imagen</th>
     </tr>
 </thead>
 <tbody class="contenidobusqueda">
@@ -38,6 +39,7 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
         <td><?php echo $row['nombre']; ?></td>
         <td><?php echo $row['precio']; ?></td>
         <td><?php echo $row['stock']; ?></td>
+        <td><?php echo '<img src="../images/upload/'.$row['imagen'].'".php?" alt="Img" style="height: 40%;"/>'; ?></td>
         <td>
             <a href="../modelo/compra_agregar.php?id_producto=<?php echo $row['id_producto']?>" 
             class="btn btn-danger">Comprar

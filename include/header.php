@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <!-- BOOTSTRAP 4 -->
     <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="../images/logo.jpg"> 
   </head>
-  <?php 
-  
-  ?>
   <body>
     <nav class="navbar navbar" style="background-color: rgb(60, 112, 112);">
       <div class="container" >

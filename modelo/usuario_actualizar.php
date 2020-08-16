@@ -87,8 +87,8 @@ if (isset($_POST['update'])) {
         </div>
 
         <div class="form-group">
-            <select class="form-control" id="id_rol" name="id_rol" required value="<?php echo $id_rol; ?>">
-                <option value="">dfgh</option>
+            <select class="form-control" id="id_rol" name="id_rol" required value="">
+                <option value="<?php echo $id_rol; ?>">ROL VACIO</option>
                 <option value="1">Admin</option>
                 <option value="2">Cliente</option>
                 <option value="3">Tecnico</option>

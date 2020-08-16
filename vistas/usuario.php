@@ -22,12 +22,10 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th><i class="fas fa-ruler-triangle    "></i></th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Telefono</th>
-            <th>Correo</th>
-            <th>Direccion</th>
+            <th>RUN</th>
+            <th>Nombres</th>
+            <th>Contacto</th>
+            <th>Comuna</th>
             <th>Rol</th>
         </tr>
     </thead>
@@ -39,10 +37,8 @@
             while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                 <tr>
                     <td><?php echo $row['rut']; ?></td>
-                    <td><?php echo $row['nombre']; ?></td>
-                    <td><?php echo $row['apellidos']; ?></td>
-                    <td><?php echo $row['telefono']; ?></td>
-                    <td><?php echo $row['correo']; ?></td>
+                    <td><?php echo $row['nombre'].' '.$row['apellidos']; ?></td>
+                    <td><?php echo $row['telefono'].' <br>'. $row['correo'];?></td>
                     <td><?php echo $row['direccion']; ?></td>
                     <td><?php echo $row['rol']; ?></td>
                     <td>

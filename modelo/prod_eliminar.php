@@ -8,7 +8,6 @@ if(isset($_GET['id_producto'])) {
   if(!$result) {
     die("Conexion fallida al eliminar.");
   }
-  
   header('Location: ../vistas/adminproducto.php');
 }
 
