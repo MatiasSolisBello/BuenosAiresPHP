@@ -7,6 +7,7 @@
     require_once("../config/conexion.php");
     require_once("../include/admin.php"); 
 ?>
+<div class="container">
 <form class="text-center border border-light p-2">
     <p class="h4 mb-4">Administrador de Productos</p>
     <div class="form-row mb-2">
@@ -27,6 +28,7 @@
             <th>Precio</th>
             <th>Stock</th>
             <th>Imagen</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody class="contenidobusqueda">
@@ -37,17 +39,25 @@
                 <tr>
                     <td><?php echo $row['id_producto']; ?></td>
                     <td><?php echo $row['nombre']; ?></td>
-                    <td><?php echo $row['precio']; ?></td>
+                    <td><?php echo '$', $row['precio']; ?></td>
                     <td><?php echo $row['stock']; ?></td>
-                    <td><?php echo '<img src="../images/upload/'.$row['imagen'].'"?" alt="Img" style="height: 50%;"/>'; ?></td>
+                    <td><?php echo '<img src="../images/upload/'.$row['imagen'].'"?" alt="Img" style="height: 12%;"/>'; ?></td>
                     <td>
                         <!--BOTONES-->
-                        <a href="../modelo/prod_actualizar.php?id_producto=<?php echo $row['id_producto']?>" class="btn btn-secondary"><i class="fas fa-marker"></i>
-                        <a href="../modelo/prod_eliminar.php?id_producto=<?php echo $row['id_producto']?>" class="btn btn-danger"><i class="far fa-trash-alt"></i>
+                        <a href="../modelo/prod_actualizar.php?id_producto=<?php 
+                        echo $row['id_producto']?>" class="btn btn-secondary">
+                        EDITAR
+                         </a>           
+                        <br>
+                        
+                        <a href="../modelo/prod_eliminar.php?id_producto=<?php 
+                        echo $row['id_producto']?>" class="btn btn-danger">
+                        BORRAR 
                         </a>
                     </td>
                 </tr>
         <?php } ?>
     </tbody>
 </table>
+</div>
 <?php require_once("../include/footer.php"); ?>

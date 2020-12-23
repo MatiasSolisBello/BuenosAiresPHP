@@ -8,7 +8,7 @@
     require_once("../config/conexion.php");
     require_once("../include/tecnico.php"); 
 ?>
-
+<div class="container">
 <form class="text-center border border-light p-2">
     <p class="h4 mb-4">Administrador de Productos</p>
     <div class="form-row mb-2">
@@ -41,5 +41,5 @@
         <?php } ?>
     </tbody>
 </table>
-
+</div>
 <?php require_once("../include/footer.php"); ?>

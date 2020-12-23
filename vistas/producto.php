@@ -8,6 +8,7 @@
     require_once("../include/cliente.php"); 
 
 ?>
+<div class="container">
 <form class="text-center border border-light p-2">
     <p class="h4 mb-4">Productos</p>
     <div class="form-row mb-2">
@@ -37,9 +38,9 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
     <tr>
         <td><?php echo $row['id_producto']; ?></td>
         <td><?php echo $row['nombre']; ?></td>
-        <td><?php echo $row['precio']; ?></td>
+        <td><?php echo '$', $row['precio']; ?></td>
         <td><?php echo $row['stock']; ?></td>
-        <td><?php echo '<img src="../images/upload/'.$row['imagen'].'".php?" alt="Img" style="height: 40%;"/>'; ?></td>
+        <td><?php echo '<img src="../images/upload/'.$row['imagen'].'".php?" alt="Img" style="height: 12%;"/>'; ?></td>
         <td>
             <a href="../modelo/compra_agregar.php?id_producto=<?php echo $row['id_producto']?>" 
             class="btn btn-danger">Comprar
@@ -49,4 +50,5 @@ while($row = mysqli_fetch_assoc($result_tasks)) { ?>
 <?php } ?>
 </tbody>
 </table>
+</div>
 <?php require_once("../include/footer.php"); ?>

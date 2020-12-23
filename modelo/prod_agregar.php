@@ -14,7 +14,7 @@ if (isset($_POST['prod_agregar'])) {
   (id_producto,nombre, precio, stock, imagen) 
   VALUES('$id_producto', '$nombre', '$precio', '$stock', '$image')";
   $result = mysqli_query($mysqli, $query);
-  if(!$result) {
+  if(!$result==1) {
     die("Query Failed.");
   }
   header("location: ../vistas/adminproducto.php");
@@ -34,6 +34,7 @@ href="https://bootswatch.com/4/yeti/bootstrap.min.css">
     <br>
     <br>
     <h1>Agrege producto</h1>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <br>
         <div class="form-group">
           <input type="number" name="id_producto" class="form-control" 
@@ -58,19 +59,19 @@ href="https://bootswatch.com/4/yeti/bootstrap.min.css">
         <img src="" id="profile-img-tag" width="100px" />
 
         <script type="text/javascript">
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    
-                    reader.onload = function (e) {
-                        $('#profile-img-tag').attr('src', e.target.result);
-                    }
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#profile-img").change(function(){
-                readURL(this);
-            });
+          function readURL(input) {
+              if (input.files && input.files[0]) {
+                  var reader = new FileReader();
+                  
+                  reader.onload = function (e) {
+                      $('#profile-img-tag').attr('src', e.target.result);
+                  }
+                  reader.readAsDataURL(input.files[0]);
+              }
+          }
+          $("#profile-img").change(function(){
+              readURL(this);
+          });
         </script><br>
         
       <input type="submit" name="prod_agregar" 

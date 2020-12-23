@@ -7,6 +7,7 @@
     require_once("../config/conexion.php");
     require_once("../include/admin.php"); 
 ?>
+<div class="container">
 <form class="text-center border border-light p-2">
     <p class="h4 mb-4">Estado de Solicitudes</p>
     <div class="form-row mb-2">
@@ -48,4 +49,5 @@
         <?php } ?>
     </tbody>
 </table>
+</div>
 <?php require_once("../include/footer.php"); ?>

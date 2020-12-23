@@ -13,6 +13,22 @@ if(isset($_GET['id_producto'])){
     }
 }
 
+if(isset($_POST['comprar'])){
+    $id_producto = $_GET['id_producto'];
+    $nombre = $_POST['nombre'];
+    $precio = $_POST['precio'];
+    $stock = $_POST['stock'];
+
+    $query = "UPDATE producto SET 
+    nombre = '$nombre', 
+    precio = '$precio',
+    stock = '$stock'
+    WHERE id_producto = $id_producto";
+
+    mysqli_query($mysqli, $query);
+    header('Location: ../vistas/adminproducto.php');
+}
+
 
 ?>
 
